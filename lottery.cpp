@@ -23,23 +23,32 @@ int main() {
 
 void PayIn() {
 
-	int StartingBalance = 100;
+	const int StartingBalance = 100;
 	int CurrentBalance;
 	int BettingAmount;
 
 	cout << "Select the amount you would like to put on your lottery ticket : " << endl;
 	cin >> BettingAmount;
 
-	do{
+	if (BettingAmount <= StartingBalance && BettingAmount > 0){
 
-		cout << "Insufficient Balance. Try Again." << endl;
+		CurrentBalance = StartingBalance - BettingAmount;
 
-	}while(BettingAmount > StartingBalance);
+		if (CurrentBalance < 0) {
+        CurrentBalance = 0;
+		}
 
-	CurrentBalance = StartingBalance - BettingAmount;
+		cout << "You decided to bet " << BettingAmount << " coins." << endl;
+		cout << "Your current balance is : " << CurrentBalance << " coins." << endl;
 
-	cout << "You decided to bet " << BettingAmount << " coins." << endl;
-	cout << "Your current balance is : " << CurrentBalance << "coins." << endl;
+	}
+	else
+	{
+
+	cout << "Insufficient balance. Try again." << endl;
+	
+
+	}
 
 }
 
@@ -86,9 +95,14 @@ void InputOfNumbers() {
 
 			}
 
-			cout << "Your numbers are : " << numbers[i] << endl;
-
 		}
+
+		for (int i = 0; i < 6; i++)
+		{
+			cout << "Your "<< i+1 << ". number is : " << numbers[i] << " " << endl;
+		}
+
+
 	}
 	else if (styleOfPlay == 7)
 	{
@@ -125,9 +139,14 @@ void InputOfNumbers() {
 
 			}
 
-			cout << "Your numbers are : " << numbers[i] << endl;
-
 		}
+
+		for (int i = 0; i < 7; i++)
+		{
+			cout << "Your "<< i+1 << ". number is : " << numbers[i] << " " << endl;
+		}
+
+
 	}
 	else if (styleOfPlay == 8)
 	{
@@ -164,13 +183,20 @@ void InputOfNumbers() {
 
 			}
 
-			cout << "Your numbers are : " << numbers[i] << endl;
+			
 				
 		}
+
+		for (int i = 0; i < 8; i++)
+		{
+			cout << "Your "<< i+1 << ". number is : " << numbers[i] << " " << endl;
+		}
+
 	}
 
 	else
 		cout << "Invalid input please try again." << endl;
+
 
 }
 
