@@ -4,10 +4,12 @@
 using namespace std;
 
 void InputOfNumbers();
+void PayIn();
 
 int main() {
 
 	InputOfNumbers();
+	PayIn();
 
 
 
@@ -23,33 +25,23 @@ void PayIn() {
 
 	int StartingBalance = 100;
 	int CurrentBalance;
+	int BettingAmount;
 
+	cout << "Select the amount you would like to put on your lottery ticket : " << endl;
+	cin >> BettingAmount;
 
+	do{
 
+		cout << "Insufficient Balance. Try Again." << endl;
 
+	}while(BettingAmount > StartingBalance);
 
+	CurrentBalance = StartingBalance - BettingAmount;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	cout << "You decided to bet " << BettingAmount << " coins." << endl;
+	cout << "Your current balance is : " << CurrentBalance << "coins." << endl;
 
 }
-
-
-
-
-
 
 void InputOfNumbers() {
 
@@ -93,6 +85,9 @@ void InputOfNumbers() {
 				i--;
 
 			}
+
+			cout << "Your numbers are : " << numbers[i] << endl;
+
 		}
 	}
 	else if (styleOfPlay == 7)
@@ -129,6 +124,9 @@ void InputOfNumbers() {
 				i--;
 
 			}
+
+			cout << "Your numbers are : " << numbers[i] << endl;
+
 		}
 	}
 	else if (styleOfPlay == 8)
@@ -165,6 +163,8 @@ void InputOfNumbers() {
 				i--;
 
 			}
+
+			cout << "Your numbers are : " << numbers[i] << endl;
 				
 		}
 	}
