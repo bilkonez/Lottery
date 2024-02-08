@@ -1,24 +1,45 @@
 #include <iostream>
 #include <cmath>
+#include <windows.h>
+#include <cstdlib>
 
 using namespace std;
 
 void InputOfNumbers();
 void PayIn();
+void Game();
 
 int main() {
 
 	InputOfNumbers();
 	PayIn();
+	Game();
 
 
 
 
-	system("pause > 0");
+	system("pause");
 	return 0;
 
 }
 
+void Game(){
+
+int OutputNumbers[48];
+
+for (int i = 0; i < 48; i++)
+{
+	OutputNumbers[i] = rand() % 48 + 1;
+}
+
+
+for (int i = 0; i < 48; i++)
+{
+	Sleep(1000);
+	cout << OutputNumbers[i];
+}
+
+}
 
 
 void PayIn() {
@@ -199,6 +220,9 @@ void InputOfNumbers() {
 
 
 }
+
+
+
 
 
 
