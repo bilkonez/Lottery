@@ -2,18 +2,27 @@
 #include <cmath>
 #include <windows.h>
 #include <cstdlib>
+#include <algorithm>
+#include <vector>
+#include <random>
 
 using namespace std;
 
-void InputOfNumbers();
-void PayIn();
+bool InputOfNumbers();
+bool PayIn();
 void Game();
 
 int main() {
 
-	InputOfNumbers();
-	PayIn();
+	if(!InputOfNumbers()){
+		return 1;
+	}
+	if(!PayIn()){
+		return 1;
+	}
 	Game();
+
+	
 
 
 
@@ -25,24 +34,36 @@ int main() {
 
 void Game(){
 
-int OutputNumbers[48];
+	vector<int> OutputNumbers(48);
 
-for (int i = 0; i < 48; i++)
-{
-	OutputNumbers[i] = rand() % 48 + 1;
+	for (int i = 0; i < 48; i++)
+	{
+		OutputNumbers[i] = i + 1;
+	}
+
+	std::random_device rd;
+	std::mt19937 g(rd());
+
+	std::shuffle(OutputNumbers.begin(), OutputNumbers.end(), g);
+
+	cout <<"Welcome to LOTTERYIO. Game is starting soon." << endl;
+	cout<< " " << endl;
+	cout<< "." << endl;
+	cout<< "." << endl;
+	cout<< "." << endl;
+	cout<< " " << endl;
+
+
+	for (int i = 0; i < 30; i++)
+	{
+		Sleep(2000);
+		cout << OutputNumbers[i]<< endl;
+	}
+
 }
 
 
-for (int i = 0; i < 48; i++)
-{
-	Sleep(1000);
-	cout << OutputNumbers[i];
-}
-
-}
-
-
-void PayIn() {
+bool PayIn() {
 
 	const int StartingBalance = 100;
 	int CurrentBalance;
@@ -62,18 +83,20 @@ void PayIn() {
 		cout << "You decided to bet " << BettingAmount << " coins." << endl;
 		cout << "Your current balance is : " << CurrentBalance << " coins." << endl;
 
+		return true;
+
 	}
 	else
 	{
 
 	cout << "Insufficient balance. Try again." << endl;
-	
+	return false;
 
 	}
 
 }
 
-void InputOfNumbers() {
+bool InputOfNumbers() {
 
 	int styleOfPlay;
 	
@@ -122,7 +145,8 @@ void InputOfNumbers() {
 		{
 			cout << "Your "<< i+1 << ". number is : " << numbers[i] << " " << endl;
 		}
-
+		
+		return true;
 
 	}
 	else if (styleOfPlay == 7)
@@ -167,6 +191,7 @@ void InputOfNumbers() {
 			cout << "Your "<< i+1 << ". number is : " << numbers[i] << " " << endl;
 		}
 
+		return true;
 
 	}
 	else if (styleOfPlay == 8)
@@ -213,10 +238,14 @@ void InputOfNumbers() {
 			cout << "Your "<< i+1 << ". number is : " << numbers[i] << " " << endl;
 		}
 
+		return true;
+
 	}
 
 	else
 		cout << "Invalid input please try again." << endl;
+
+	return false;
 
 
 }
