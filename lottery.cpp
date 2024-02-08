@@ -10,7 +10,7 @@ using namespace std;
 
 bool InputOfNumbers();
 bool PayIn();
-void Game();
+
 
 int main() {
 
@@ -20,19 +20,6 @@ int main() {
 	if(!PayIn()){
 		return 1;
 	}
-	Game();
-
-	
-
-
-
-
-	system("pause");
-	return 0;
-
-}
-
-void Game(){
 
 	vector<int> OutputNumbers(48);
 
@@ -46,22 +33,121 @@ void Game(){
 
 	std::shuffle(OutputNumbers.begin(), OutputNumbers.end(), g);
 
-	cout <<"Welcome to LOTTERYIO. Game is starting soon." << endl;
-	cout<< " " << endl;
-	cout<< "." << endl;
-	cout<< "." << endl;
-	cout<< "." << endl;
-	cout<< " " << endl;
+	int HowManyNumbers;
+	cout <<"Choose how many numbers you want to see? (25, 30, 35, Less numbers more money) : " << endl;
+	cin >> HowManyNumbers;
 
+	if (HowManyNumbers == 25 ){
 
-	for (int i = 0; i < 30; i++)
-	{
+		cout <<"Welcome to LOTTERYIO. Game is starting soon." << endl;
+		cout<< " " << endl;
+		cout<<"If you choose 6 balls your potential earnings are : For 25 Numbers * 3, For 30 Numbers * 2.5, For 35 Numbers * 2" << endl;
+		Sleep(6000);
+		cout << "." << endl;
+		cout<<"If you choose 7 balls your potential earnings are : For 25 Numbers * 2, For 30 Numbers * 1.75, For 35 Numbers * 1.5" << endl;
+		Sleep(6000);
+		cout << "." << endl;
+		cout<<"If you choose 8 balls your potential earnings are : For 25 Numbers * 1.75, For 30 Numbers * 1.5, For 35 Numbers * 1.25" << endl;
+		Sleep(6000);
+		cout<< " " << endl;
+		cout<< "." << endl;
+		cout<< "." << endl;
+		cout<< "." << endl;
+		cout<< " " << endl;
+		cout<< "Game is starting..." << endl;
+		cout<< " " << endl;
+		Sleep(2000);
+
+		for (int i = 0; i < 25; i++)
+		{
 		Sleep(2000);
 		cout << OutputNumbers[i]<< endl;
+		}
+
+	}
+	else if (HowManyNumbers == 30 ){
+
+		cout <<"Welcome to LOTTERYIO. Game is starting soon." << endl;
+		cout<< " " << endl;
+		cout<<"If you choose 6 your potential earnings are : For 25 Numbers * 3, For 30 Numbers * 2.5, For 35 Numbers * 2" << endl;
+		Sleep(6000);
+		cout << "." << endl;
+		cout<<"If you choose 7 your potential earnings are : For 25 Numbers * 2, For 30 Numbers * 1.75, For 35 Numbers * 1.5" << endl;
+		Sleep(6000);
+		cout << "." << endl;
+		cout<<"If you choose 8 your potential earnings are : For 25 Numbers * 1.75, For 30 Numbers * 1.5, For 35 Numbers * 1.25" << endl;
+		Sleep(6000);
+		cout<< " " << endl;
+		cout<< "." << endl;
+		cout<< "." << endl;
+		cout<< "." << endl;
+		cout<< " " << endl;
+		cout<< "Game is starting..." << endl;
+		cout<< " " << endl;
+		Sleep(2000);
+
+		for (int i = 0; i < 30; i++)
+		{
+		Sleep(2000);
+		cout << OutputNumbers[i]<< endl;
+		}
+
+	}
+	else if (HowManyNumbers == 35 ){
+
+		cout <<"Welcome to LOTTERYIO. Game is starting soon." << endl;
+		cout<< " " << endl;
+		cout<<"If you choose 6 your potential earnings are : For 25 Numbers * 3, For 30 Numbers * 2.5, For 35 Numbers * 2" << endl;
+		Sleep(6000);
+		cout << "." << endl;
+		cout<<"If you choose 7 your potential earnings are : For 25 Numbers * 2, For 30 Numbers * 1.75, For 35 Numbers * 1.5" << endl;
+		Sleep(6000);
+		cout << "." << endl;
+		cout<<"If you choose 8 your potential earnings are : For 25 Numbers * 1.75, For 30 Numbers * 1.5, For 35 Numbers * 1.25" << endl;
+		Sleep(6000);
+		cout<< " " << endl;
+		cout<< "." << endl;
+		cout<< "." << endl;
+		cout<< "." << endl;
+		cout<< " " << endl;
+		cout<< "Game is starting..." << endl;
+		cout<< " " << endl;
+		Sleep(2000);
+
+		for (int i = 0; i < 25; i++)
+		{
+		Sleep(2000);
+		cout << OutputNumbers[i]<< endl;
+		}
+
+	}
+	else {
+
+		cout << "Wrong input." << endl;
+		return 1;
+
 	}
 
-}
+	int potentialEarnings = 0;
 
+	
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+	system("pause");
+	return 0;
+
+}
 
 bool PayIn() {
 
